@@ -1,3 +1,17 @@
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+function copyPhone() {
+  const phone = document.getElementById("phone").innerText;
+  navigator.clipboard.writeText(phone);
+  showToast("Đã copy: " + phone);
+}
+
 (function () {
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';

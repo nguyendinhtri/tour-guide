@@ -436,6 +436,29 @@ footer .name {
   cursor: pointer;
 }
 
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: var(--green-700);
+  color: var(--white);
+  padding: 10px 22px;
+  border-radius: 99px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  z-index: 9999;
+  white-space: nowrap;
+}
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
