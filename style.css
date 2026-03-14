@@ -264,8 +264,10 @@ a {
 
 .price {
   color: var(--green-700);
-  font-weight: 800;
+  font-weight: 600;
   font-size: 1.15rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .gallery-grid {
@@ -512,7 +514,7 @@ footer .name {
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .btn,
+  .hero .btn,
   .contact-btn {
     width: 100%;
   }
