@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nguyễn Đình Trí - Hướng dẫn viên du lịch các tỉnh Miền Trung. Đặt tour khám phá hang động và thiên nhiên tuyệt đẹp." />
+  <link rel="icon" type="image/png" href="https://images.weserv.nl/?url=https%3A%2F%2Fscontent.fhan15-1.fna.fbcdn.net%2Fv%2Ft39.30808-6%2F529393693_1438614910620900_5074085786582161828_n.jpg%3F_nc_cat%3D106%26ccb%3D1-7%26_nc_sid%3D1d70fc%26_nc_ohc%3DBdgsXDWLbjwQ7kNvwFlse5c%26_nc_oc%3DAdkyTO3ImNvcVTmo1DdkiTNokvuFoCknX6jHQXbrdCT0qSya3p7uLBfSuxsV9DFDHVCZu-dqguCWvWUtGILwM-1p%26_nc_zt%3D23%26_nc_ht%3Dscontent.fhan15-1.fna%26_nc_gid%3DlvvHhKI6_T99sZ_9eGpMMw%26_nc_ss%3D8%26oh%3D00_Afx0wsRkLOGo5EKRJS-nBh3Sn68fiFcke7y2HUGB8ZoLjg%26oe%3D69BB2DE5&amp;w=128&amp;h=128&amp;fit=cover&amp;mask=circle&amp;output=png" />
+  <meta name="theme-color" content="#1f7a52" />
+  <title>Nguyễn Đình Trí | Hướng dẫn viên du lịch</title>
+  <style>
+    :root {
+      --green-700: #1f7a52;
+      --green-600: #2a9d6f;
+      --green-500: #39b67f;
+      --green-100: #e9f7f0;
+      --text-900: #163025;
+      --text-700: #2f4a3f;
+      --text-600: #4a6258;
+      --gray-100: #f6f8f7;
+      --white: #ffffff;
+      --shadow-sm: 0 8px 20px rgba(14, 36, 28, 0.08);
+      --shadow-md: 0 16px 36px rgba(14, 36, 28, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --container: min(1120px, 92vw);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-700);
+      background: var(--gray-100);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+      color: var(--text-900);
+      margin-bottom: 20px;
+      letter-spacing: 0.2px;
+    }
+
+    .section-sub {
+      max-width: 760px;
+      color: var(--text-600);
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 26px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green-600), var(--green-500));
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--green-700);
+      border: 1px solid rgba(31, 122, 82, 0.24);
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 32px 0;
+      overflow: hidden;
+      background: #0e2219;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(7, 20, 14, 0.68), rgba(8, 24, 17, 0.45));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 1s ease;
+      transform: scale(1.02);
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: var(--container);
+      color: var(--white);
+      text-align: center;
+      animation: fadeUp 0.8s ease;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero h2 {
+      font-size: clamp(1.05rem, 2.8vw, 1.65rem);
+      font-weight: 600;
+      margin-bottom: 16px;
+      opacity: 0.98;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: clamp(1rem, 2.1vw, 1.15rem);
+      opacity: 0.96;
+    }
+
+    .scroll-hint {
+      margin-top: 20px;
+      font-size: 0.92rem;
+      opacity: 0.86;
+    }
+
+    .about-wrap {
+      display: grid;
+      gap: 34px;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+    }
+
+    .about-card,
+    .highlight-list {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-card p + p {
+      margin-top: 10px;
+    }
+
+    .highlight-list h3 {
+      color: var(--text-900);
+      margin-bottom: 18px;
+      font-size: 1.2rem;
+    }
+
+    .highlight-list ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .highlight-list li {
+      background: var(--green-100);
+      border: 1px solid rgba(31, 122, 82, 0.16);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-weight: 600;
+      color: var(--text-700);
+    }
+
+    .tour-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .tour-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.24s ease, box-shadow 0.24s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .tour-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tour-img {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .tour-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .tour-title {
+      font-size: 1.2rem;
+      color: var(--text-900);
+      font-weight: 700;
+    }
+
+    .tour-desc {
+      color: var(--text-600);
+      font-size: 0.98rem;
+    }
+
+    .tour-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .price {
+      color: var(--green-700);
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: zoom-in;
+      box-shadow: var(--shadow-sm);
+      isolation: isolate;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item::after {
+      content: "Phóng to";
+      position: absolute;
+      inset: auto 10px 10px auto;
+      background: rgba(10, 29, 21, 0.78);
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact-wrap {
+      background: linear-gradient(180deg, #f8fbf9, #ffffff);
+      border: 1px solid rgba(31, 122, 82, 0.14);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      gap: 14px;
+    }
+
+    .contact-btn {
+      min-height: 108px;
+      border-radius: 18px;
+      color: white;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+
+    .contact-btn img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .contact-label {
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      filter: brightness(1.04);
+    }
+
+    .zalo { background: linear-gradient(135deg, #0b73ff, #0058d4); }
+    .facebook { background: linear-gradient(135deg, #2e89ff, #1463dd); }
+    .phone { background: linear-gradient(135deg, #28b35a, #1f944a); }
+    .tiktok { background: linear-gradient(135deg, #202020, #000000); }
+
+    footer {
+      padding: 36px 0 44px;
+      text-align: center;
+      color: var(--text-600);
+      border-top: 1px solid #e7ece9;
+      margin-top: 30px;
+      background: #ffffff;
+    }
+
+    footer .name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-900);
+      margin-bottom: 4px;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 12, 9, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      padding: 20px;
+    }
+
+    .lightbox.open {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .lightbox img {
+      max-width: min(1000px, 96vw);
+      max-height: 85vh;
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(0, 0, 0, 0.36);
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 1024px) {
+      .tour-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 68px 0;
+      }
+      .about-wrap {
+        grid-template-columns: 1fr;
+      }
+      .tour-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .hero {
+        min-height: 92vh;
+      }
+      .hero p {
+        padding: 0 8px;
+      }
+      .contact-wrap {
+        padding: 18px;
+      }
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .btn,
+      .contact-btn {
+        width: 100%;
+      }
+      .contact-btn {
+        min-height: 96px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero-slide active" id="heroSlideA" aria-hidden="true"></div>
+    <div class="hero-slide" id="heroSlideB" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h1>Nguyễn Đình Trí</h1>
+      <h2>Hướng dẫn viên du lịch các tỉnh Miền Trung</h2>
+      <p>Khám phá hang động và thiên nhiên tuyệt đẹp cùng hướng dẫn viên bản địa.</p>
+      <a class="btn btn-primary" href="#lien-he" aria-label="Đặt Tour Ngay">Đặt Tour Ngay</a>
+      <div class="scroll-hint">Cuộn xuống để xem thêm hành trình</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="gioi-thieu">
+      <div class="container about-wrap">
+        <article class="about-card">
+          <h2 class="section-title">Giới thiệu</h2>
+          <p>Tôi là hướng dẫn viên du lịch địa phương tại Phong Nha – Kẻ Bàng.</p>
+          <p>Tôi có kinh nghiệm dẫn tour cho khách du lịch trong và ngoài nước.</p>
+        </article>
+        <aside class="highlight-list">
+          <h3>Điểm nổi bật</h3>
+          <ul>
+            <li>Hướng dẫn viên địa phương</li>
+            <li>Tour nhóm nhỏ</li>
+            <li>Lịch trình linh hoạt</li>
+            <li>Hỗ trợ tiếng Anh</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="tour">
+      <div class="container">
+        <h2 class="section-title">Các tour phổ biến</h2>
+        <p class="section-sub">Lựa chọn hành trình phù hợp để trải nghiệm vẻ đẹp thiên nhiên Phong Nha – Quảng Bình một cách trọn vẹn.</p>
+
+        <div class="tour-grid">
+          <article class="tour-card">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80" alt="Tour Động Phong Nha" loading="lazy" />
+            <div class="tour-body">
+              <h3 class="tour-title">Tour Động Phong Nha</h3>
+              <p class="tour-desc">Khám phá động Phong Nha bằng thuyền và tham quan vườn quốc gia.</p>
+              <div class="tour-footer">
+                <span class="price">Liên hệ</span>
+                <a class="btn btn-secondary" href="#lien-he">Đặt Tour</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="tour-card">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80" alt="Tour Động Thiên Đường" loading="lazy" />
+            <div class="tour-body">
+              <h3 class="tour-title">Tour Động Thiên Đường</h3>
+              <p class="tour-desc">Tham quan hang động đẹp nhất châu Á.</p>
+              <div class="tour-footer">
+                <span class="price">Liên hệ</span>
+                <a class="btn btn-secondary" href="#lien-he">Đặt Tour</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="tour-card">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80" alt="Tour Khám Phá Hang Động" loading="lazy" />
+            <div class="tour-body">
+              <h3 class="tour-title">Tour Khám Phá Hang Động</h3>
+              <p class="tour-desc">Trekking rừng và khám phá hang động hoang sơ.</p>
+              <div class="tour-footer">
+                <span class="price">Liên hệ</span>
+                <a class="btn btn-secondary" href="#lien-he">Đặt Tour</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <h2 class="section-title">Hình ảnh</h2>
+        <p class="section-sub">Khoảnh khắc khám phá hang động, trekking và trải nghiệm thực tế của du khách.</p>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=80" alt="Hang động tại Phong Nha" loading="lazy" /></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80" alt="Trekking trong rừng" loading="lazy" /></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80" alt="Đường đi vào hang" loading="lazy" /></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1000&q=80" alt="Nhóm khách du lịch khám phá" loading="lazy" /></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=1000&q=80" alt="Thiên nhiên Quảng Bình" loading="lazy" /></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1000&q=80" alt="Du khách đi thuyền" loading="lazy" /></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1000&q=80" alt="Cảnh núi rừng" loading="lazy" /></figure>
+          <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1470004914212-05527e49370b?auto=format&fit=crop&w=1000&q=80" alt="Hành trình trekking" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lien-he">
+      <div class="container">
+        <div class="contact-wrap">
+          <h2 class="section-title">Liên hệ / Đặt Tour</h2>
+          <p class="section-sub">Liên hệ nhanh qua các nền tảng bên dưới để nhận lịch trình phù hợp và báo giá chi tiết.</p>
+          <div class="contact-grid">
+            <a class="contact-btn zalo" href="https://zalo.me/+84988972753" target="_blank" rel="noopener noreferrer" aria-label="Zalo">
+              <img src="https://img.icons8.com/color/96/zalo.png" alt="Zalo" loading="lazy" />
+              <span class="contact-label">Zalo</span>
+              <span class="sr-only">Zalo</span>
+            </a>        
+            <a class="contact-btn phone" href="tel:+84988972753" aria-label="Gọi điện">
+              <img src="https://img.icons8.com/ios-filled/100/ffffff/phone.png" alt="Gọi điện" loading="lazy" />
+              <span class="contact-label">Gọi điện</span>
+              <span class="sr-only">Gọi điện</span>
+            </a>
+             <a class="contact-btn facebook" href="https://facebook.com//moc.kho.2024" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <img src="https://img.icons8.com/color/96/facebook-new.png" alt="Facebook" loading="lazy" />
+              <span class="contact-label">Facebook</span>
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a class="contact-btn tiktok" href="https://tiktok.com/@mockho" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <img src="https://img.icons8.com/color/96/tiktok--v1.png" alt="TikTok" loading="lazy" />
+              <span class="contact-label">TikTok</span>
+              <span class="sr-only">TikTok</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="name">Nguyễn Đình Trí</p>
+      <p>Hướng dẫn viên du lịch địa phương</p>
+      <p>Đà Nẵng – Việt Nam</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Xem ảnh lớn">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Đóng">×</button>
+    <img id="lightboxImg" src="" alt="Phóng to" />
+  </div>
+
+  <script>
+    (function () {
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      const isReload = (navEntry && navEntry.type === 'reload') ||
+        (performance.navigation && performance.navigation.type === 1);
+
+      if (isReload) {
+        if (window.location.hash) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+
+        window.addEventListener('load', () => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        });
+      }
+
+      const heroSlides = [
+        'https://scontent.fhan15-1.fna.fbcdn.net/v/t39.30808-6/529393693_1438614910620900_5074085786582161828_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=BdgsXDWLbjwQ7kNvwFlse5c&_nc_oc=AdkyTO3ImNvcVTmo1DdkiTNokvuFoCknX6jHQXbrdCT0qSya3p7uLBfSuxsV9DFDHVCZu-dqguCWvWUtGILwM-1p&_nc_zt=23&_nc_ht=scontent.fhan15-1.fna&_nc_gid=lvvHhKI6_T99sZ_9eGpMMw&_nc_ss=8&oh=00_Afx0wsRkLOGo5EKRJS-nBh3Sn68fiFcke7y2HUGB8ZoLjg&oe=69BB2DE5',
+        'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=80',
+        'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1800&q=80',
+        'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1800&q=80'
+      ];
+
+      const slideA = document.getElementById('heroSlideA');
+      const slideB = document.getElementById('heroSlideB');
+
+      if (slideA && slideB && heroSlides.length > 0) {
+        slideA.style.backgroundImage = `url('${heroSlides[0]}')`;
+        slideB.style.backgroundImage = `url('${heroSlides[1] || heroSlides[0]}')`;
+
+        let currentIndex = 1;
+        let activeSlide = slideA;
+        let inactiveSlide = slideB;
+
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          setInterval(() => {
+            inactiveSlide.style.backgroundImage = `url('${heroSlides[currentIndex]}')`;
+            inactiveSlide.classList.add('active');
+            activeSlide.classList.remove('active');
+
+            const temp = activeSlide;
+            activeSlide = inactiveSlide;
+            inactiveSlide = temp;
+
+            currentIndex = (currentIndex + 1) % heroSlides.length;
+          }, 5000);
+        }
+      }
+
+      const items = document.querySelectorAll('.gallery-item img');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || 'Ảnh xem lớn';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      items.forEach((img) => {
+        img.addEventListener('click', () => openLightbox(img.src, img.alt));
+      });
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
