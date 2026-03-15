@@ -36,14 +36,14 @@ function copyPhone() {
     'image/slide/IMG_1143.webp',
     'image/slide/IMG_5847.webp',
     'image/slide/IMG_5033.webp',
-    'image/slide/IMG_5330.jpg',
-    'image/slide/IMG_6084.jpg',
+    'image/slide/IMG_5332.jpg',
+    'image/slide/IMG_6082.jpg',
     'image/slide/IMG_5592.webp',
     'image/slide/IMG_6245.webp',
     'image/slide/IMG_5515.webp',
     'image/slide/IMG_6961.webp',
     'image/slide/IMG_1149.webp',
-    'image/slide/IMG_7002.jpg',
+    'image/slide/IMG_7022.jpg',
   ]
 
   const imageGallry = [
