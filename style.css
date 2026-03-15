@@ -298,13 +298,13 @@ a {
   position: absolute;
   inset: auto 10px 10px auto;
   background: rgba(10, 29, 21, 0.78);
-  color: #fff;
+  color: var(--white);
   font-size: 0.8rem;
   padding: 6px 10px;
   border-radius: 999px;
   opacity: 0;
   transform: translateY(6px);
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
   z-index: 2;
 }
 
@@ -315,6 +315,16 @@ a {
 .gallery-item:hover::after {
   opacity: 1;
   transform: translateY(0);
+}
+
+.gallery-more {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-more-btn {
+  min-width: 170px;
 }
 
 .contact-wrap {
@@ -328,14 +338,14 @@ a {
 .contact-grid {
   margin-top: 18px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
 }
 
 .contact-btn {
   min-height: 108px;
   border-radius: 18px;
-  color: white;
+  color: var(--white);
   font-weight: 700;
   display: flex;
   flex-direction: column;
@@ -353,7 +363,6 @@ a {
   width: 38px;
   height: 38px;
   object-fit: contain;
-  display: block;
 }
 
 .contact-label {
@@ -378,6 +387,9 @@ a {
   box-shadow: var(--shadow-md);
   filter: brightness(1.04);
 }
+.contact-btn.instagram {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+}
 
 .zalo { background: linear-gradient(135deg, #0b73ff, #0058d4); }
 .facebook { background: linear-gradient(135deg, #2e89ff, #1463dd); }
@@ -390,7 +402,7 @@ footer {
   color: var(--text-600);
   border-top: 1px solid #e7ece9;
   margin-top: 30px;
-  background: #ffffff;
+  background: var(--white);
 }
 
 footer .name {
@@ -466,6 +478,46 @@ footer .name {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
+.lightbox-nav,
+.lightbox-close {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(0, 0, 0, 0.36);
+  color: var(--white);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
+
+.lightbox-nav svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lightbox-nav.prev {
+  left: 36px;
+}
+
+.lightbox-nav.next {
+  right: 36px;
+}
+
 .lightbox-close {
   position: absolute;
   top: 14px;
@@ -473,11 +525,13 @@ footer .name {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  background: rgba(0, 0, 0, 0.36);
-  color: #fff;
   font-size: 1.5rem;
-  cursor: pointer;
+}
+
+.lightbox-nav:focus-visible,
+.lightbox-close:focus-visible {
+  outline: 2px solid var(--green-500);
+  outline-offset: 2px;
 }
 
 /* Toast */
@@ -553,9 +607,6 @@ footer .name {
   .contact-wrap {
     padding: 18px;
   }
-  .contact-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .hero .btn,
   .contact-btn {
     width: 100%;
@@ -568,5 +619,18 @@ footer .name {
 @media (max-width: 480px) {
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-more {
+    margin-top: 16px;
+  }
+
+  .gallery-more-btn {
+    width: 100%;
+  }
+
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
   }
 }
