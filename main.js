@@ -32,10 +32,14 @@ function copyPhone() {
   }
 
   const heroSlides = [
-    'image/1.jpg',
-    'image/2.jpg',
-    'image/3.jpg',
-    'image/1.jpg'
+    'image/slide/1.jpg',
+    'image/slide/2.jpg',
+    'image/slide/3.jpg',
+    'image/slide/4.jpg',
+    'image/slide/5.jpg',
+    'image/slide/6.jpg',
+    'image/slide/7.jpg',
+    'image/slide/8.jpg',
   ];
 
   const slideA = document.getElementById('heroSlideA');
@@ -45,11 +49,11 @@ function copyPhone() {
     slideA.style.backgroundImage = `url('${heroSlides[0]}')`;
     slideB.style.backgroundImage = `url('${heroSlides[1] || heroSlides[0]}')`;
 
-    let currentIndex = 1;
+    let currentIndex = heroSlides.length > 1 ? 1 : 0;
     let activeSlide = slideA;
     let inactiveSlide = slideB;
 
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && heroSlides.length > 1) {
       setInterval(() => {
         inactiveSlide.style.backgroundImage = `url('${heroSlides[currentIndex]}')`;
         inactiveSlide.classList.add('active');
@@ -62,6 +66,30 @@ function copyPhone() {
         currentIndex = (currentIndex + 1) % heroSlides.length;
       }, 5000);
     }
+  }
+
+  if (heroSlides.length > 0) {
+    const tourImages = document.querySelectorAll('.tour-img');
+    tourImages.forEach((img, index) => {
+      const imagePath = heroSlides[index];
+      if (imagePath) {
+        img.src = imagePath;
+      } else {
+        const card = img.closest('.tour-card');
+        if (card) card.style.display = 'none';
+      }
+    });
+
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    galleryImages.forEach((img, index) => {
+      const imagePath = heroSlides[index];
+      if (imagePath) {
+        img.src = imagePath;
+      } else {
+        const item = img.closest('.gallery-item');
+        if (item) item.style.display = 'none';
+      }
+    });
   }
 
   const items = document.querySelectorAll('.gallery-item img');

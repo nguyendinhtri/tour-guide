@@ -400,6 +400,48 @@ footer .name {
   margin-bottom: 4px;
 }
 
+.footer-name-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.footer-name-row .name {
+  margin-bottom: 0;
+}
+
+.copy-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(31, 122, 82, 0.2);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--green-700);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.copy-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.copy-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  background: var(--green-100);
+}
+
+.copy-btn:focus-visible {
+  outline: 2px solid var(--green-600);
+  outline-offset: 2px;
+}
+
 /* Lightbox */
 .lightbox {
   position: fixed;
