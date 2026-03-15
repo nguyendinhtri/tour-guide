@@ -32,34 +32,31 @@ function copyPhone() {
   }
 
   const heroSlides = [
-    'image/slide/IMG_3518.jpg',
-    'image/slide/IMG_1143.jpg',
-    'image/slide/IMG_5847.jpg',
-    'image/slide/IMG_5033.jpg',
+    'image/slide/IMG_3518.webp',
+    'image/slide/IMG_1143.webp',
+    'image/slide/IMG_5847.webp',
+    'image/slide/IMG_5033.webp',
     'image/slide/IMG_5330.jpg',
-    'image/slide/IMG_5587.jpg',
     'image/slide/IMG_6084.jpg',
-    'image/slide/IMG_6988.jpg',
-    'image/slide/IMG_5041.jpg',
-    'image/slide/IMG_5592.jpg',
-    'image/slide/IMG_6245.jpg',
-    'image/slide/IMG_5515.jpg',
-    'image/slide/IMG_6961.jpg',
-    'image/slide/IMG_1149.jpg',
+    'image/slide/IMG_5592.webp',
+    'image/slide/IMG_6245.webp',
+    'image/slide/IMG_5515.webp',
+    'image/slide/IMG_6961.webp',
+    'image/slide/IMG_1149.webp',
     'image/slide/IMG_7002.jpg',
   ]
 
   const imageGallry = [
-    'image/gallery/IMG_5216.jpg',
-    'image/gallery/IMG_1145.jpg',
-    'image/gallery/IMG_1146.jpg',
-    'image/gallery/IMG_1147.jpg',
-    'image/gallery/IMG_1148.jpg',
-    'image/gallery/IMG_6754.jpg',
-    'image/gallery/IMG_4539.jpg',
-    'image/gallery/IMG_6842.jpg',
-    'image/gallery/IMG_4708.jpg',
-    'image/gallery/IMG_6013.jpg',
+    'image/gallery/IMG_5216.webp',
+    'image/gallery/IMG_1145.webp',
+    'image/gallery/IMG_1146.webp',
+    'image/gallery/IMG_1147.webp',
+    'image/gallery/IMG_1148.webp',
+    'image/gallery/IMG_6754.webp',
+    'image/gallery/IMG_4539.webp',
+    'image/gallery/IMG_6842.webp',
+    'image/gallery/IMG_4708.webp',
+    'image/gallery/IMG_6013.webp',
   ];
 
   function shuffleArray(items) {
